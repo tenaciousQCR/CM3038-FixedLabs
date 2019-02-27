@@ -1,0 +1,2 @@
+# Notes on using this resource
+Be sure to drag the 'cm3038' folder inside the top folders into NetBeans or you may experience some minor problems. In addition, all labs require at least most of the contents of the 'search' package so be sure to import that as well.
