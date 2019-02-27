@@ -8,26 +8,25 @@ import cm3038.search.*;
  * @author kit
  *
  */
-public class ActionScorePair
-{
-/**
- * The action.
- */
-public Action action;
+public class ActionScorePair {
+	/**
+	 * The action.
+	 */
+	public Action action;
 
-/**
- * The score of the state that the action is leading to.
- */
-public double score;
+	/**
+	 * The score of the state that the action is leading to.
+	 */
+	public double score;
 
-/**
- * Create an action-score pair.
- * @param action	The action.
- * @param score	The value of the node.
- */
-public ActionScorePair(Action action,double score)
-{
-this.action=action;
-this.score=score;
-} //end method
-} //end class
+	/**
+	 * Create an action-score pair.
+	 * @param action	The action.
+	 * @param score	The value of the node.
+	 */
+	public ActionScorePair(Action action, double score)
+	{
+		this.action = action;
+		this.score = score;
+	}
+}

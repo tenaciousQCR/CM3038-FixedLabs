@@ -6,7 +6,6 @@ package cm3038.search.adversarial;
  * @author kit
  *
  */
-public enum PlayerRole
-{
-MAX,MIN,UNKNOWN;
-} //end enumeration
+public enum PlayerRole {
+	MAX, MIN, UNKNOWN;
+}
