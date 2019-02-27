@@ -9,7 +9,6 @@ import cm3038.search.*;
  *
  */
 public class AntState implements State {
-
 	/**
 	 * The X coordinate of the ant.
 	 * This is also called the column.
@@ -41,45 +40,41 @@ public class AntState implements State {
 	 * @param y The Y coordinate of the ant.
 	 * @param world A reference to the AntWorld object.
 	 */
-	public AntState(int x,int y,AntWorld world)
-	{
-	this.x=x;
-	this.y=y;
-	this.world=world;
-	} //end method
+	public AntState(int x, int y, AntWorld world) {
+		this.x = x;
+		this.y = y;
+		this.world = world;
+	}
 	
 	/**
 	 * Create a list of action-pair from the current AntState.
 	 * @return A List<ActionStatePair> that contains all valid action and next-state pairs.
 	 */
 	@Override
-	public List<ActionStatePair> successor()
-	{
-	List<ActionStatePair> result=new ArrayList<ActionStatePair>();
+	public List<ActionStatePair> successor() {
+		List<ActionStatePair> result = new ArrayList<ActionStatePair>();
 
-	System.out.println("Complete successor() method of AntState.");
-	/**
-	 * See if ant can move to the north.
-	 * If yes, create and add the action-state pair into the list of result.
-	 */
-	if (this.y>0)							//ant is not on the north border
-		{
-		if (!this.world.grid[y-1][x])		//check to see if space in north is free
-			{
-			AntAction action=new AntAction(x,y,Direction.NORTH);					//create Action object
-			AntState nextState=this.applyAction(action);							//apply action to find next state
-			ActionStatePair actionStatePair=new ActionStatePair(action,nextState);	//create action-state pair
-			result.add(actionStatePair);											//add action-state pair into list
+		System.out.println("Complete successor() method of AntState.");
+		/**
+		 * See if ant can move to the north.
+		 * If yes, create and add the action-state pair into the list of result.
+		 */
+		if (this.y > 0) {							//ant is not on the north border
+			if (!this.world.grid[y-1][x]) {		//check to see if space in north is free
+				AntAction action = new AntAction(x, y, Direction.NORTH);					//create Action object
+				AntState nextState = this.applyAction(action);							//apply action to find next state
+				ActionStatePair actionStatePair = new ActionStatePair(action, nextState);	//create action-state pair
+				result.add(actionStatePair);											//add action-state pair into list
 			}
 		}
-	/**
-	 * *** Complete the rest of the method here.
-	 * *** Test to see if the ant can move south, west or east.
-	 * *** For each valid action, create an ActionStatePair and add it to the list.
-	 */
-	
-	return result;	//return the list of action-state pair
-	} //end method
+		
+		/**
+		 * *** Complete the rest of the method here.
+		 * *** Test to see if the ant can move south, west or east.
+		 * *** For each valid action, create an ActionStatePair and add it to the list.
+		 */
+		return result;	//return the list of action-state pair
+	}
 	
 	/**
 	 * Compare if the current AntState equals to another state.
@@ -87,24 +82,23 @@ public class AntState implements State {
 	 * There is no need to compare the AntWorld.
 	 * @return true if the 2 AntState objects are equal. false otherwise.
 	 */
-	public boolean equals(Object state)
-	{
-	if (!(state instanceof AntState))				//make sure that state is an AntState object
-		return false;								//if it is not, return false
+	public boolean equals(Object state) {
+		if (!(state instanceof AntState)) {				//make sure that state is an AntState object
+			return false;								//if it is not, return false
+		}
 
-	AntState antState=(AntState)state;					//cast state into an AntState object
-	return this.x==antState.x && this.y==antState.y;	//true if x and y are the same
-	} //end method
+		AntState antState = (AntState)state;					//cast state into an AntState object
+		return this.x == antState.x && this.y == antState.y;	//true if x and y are the same
+	}
 
 	/**
 	 * Compute a hash code of the AntState.
 	 * This is needed as we store our AntState objects into a hash map.
 	 * We take the simple formula of y*100+x.
 	 */
-	public int hashCode()
-	{
-	return this.x+this.y*100;
-	} //end method
+	public int hashCode() {
+		return this.x + this.y * 100;
+	}
 	
 	/**
 	 * Apply an action to the current state, giving the next state.
@@ -113,46 +107,49 @@ public class AntState implements State {
 	 */
 	public AntState applyAction(AntAction action)
 	{
-	int newX=0,newY=0;				//to hold new x and y after action is applied
+		int newX = 0, newY = 0;				//to hold new x and y after action is applied
 
-	System.out.println("Complete applyAction(...) method in AntState.");
-	switch (action.movement)
-		{
-		case NORTH:	newX=this.x;		//moving north, x remains unchange
-					newY=this.y-1;		//decrement y
-					break;
-		/**
-		 * *** Complete the method here!!!
-		 * *** For each movement, compute the new x and y values.
-		 */
-		default:	newX=this.x;
-					newY=this.y;
+		System.out.println("Complete applyAction(...) method in AntState.");
+		
+		switch (action.movement) {
+			case NORTH:
+				newX = this.x;		//moving north, x remains unchange
+				newY = this.y - 1;		//decrement y
+				break;
+			
+			/**
+			 * *** Complete the method here!!!
+			 * *** For each movement, compute the new x and y values.
+			 */
+			default:
+				newX = this.x;
+				newY = this.y;
 		}
-	AntState result=new AntState(newX,newY,this.world);	//create next state from new x,y and ant world
-	return result;	//return next state as result
-	} //end method
+		
+		AntState result = new AntState(newX, newY, this.world);	//create next state from new x,y and ant world
+		return result;	//return next state as result
+	}
 
-/**
- * Concert the current state object to a String.
- */
-public String toString()
-{
-String result="";
-
-System.out.println("Complete the toString() method in AntState.");
-for (int y=0;y<this.world.grid.length;y++)
-	{
-	for (int x=0;x<this.world.grid[y].length;x++)
-	{
 	/**
-	 * *** Complete the method here to show the world map!!!
-	 * *** If the space is occupied, append an "X" to result.
-	 * *** If it is free, append a ".".
-	 * *** If it ant is here (check the coordinates!), append an "O".
+	 * Concert the current state object to a String.
 	 */
+	public String toString() {
+		String result="";
+
+		System.out.println("Complete the toString() method in AntState.");
+		
+		for (int y = 0; y < this.world.grid.length; y++) {
+			for (int x = 0; x < this.world.grid[y].length; x++) {
+				/**
+				 * *** Complete the method here to show the world map!!!
+				 * *** If the space is occupied, append an "X" to result.
+				 * *** If it is free, append a ".".
+				 * *** If it ant is here (check the coordinates!), append an "O".
+				 */
+			}
+				result += "\n";	//append a newline at the end of each row
+		}
+		
+		return result;		//return result String
 	}
-	result+="\n";	//append a newline at the end of each row
-	}
-return result;		//return result String
-} //end method
-} //end class
+}

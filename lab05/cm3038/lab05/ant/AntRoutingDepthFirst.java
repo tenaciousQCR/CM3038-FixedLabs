@@ -9,47 +9,46 @@ import cm3038.search.*;
  * @author kit
  *
  */
-public class AntRoutingDepthFirst extends SearchProblem
-{
-/**
- * The goal state.
- */
-public AntState goal;
+public class AntRoutingDepthFirst extends SearchProblem {
+	/**
+	 * The goal state.
+	 */
+	public AntState goal;
 
-/**
- * A reference to the ant world.
- */
-public AntWorld world;
+	/**
+	 * A reference to the ant world.
+	 */
+	public AntWorld world;
 
-/**
- * Create an AntRoutingDepthFirst object from the initial state, goal state, and ant world.
- * @param start	The initial state.
- * @param goal	The goal state.
- * @param world	The world as an AntWorld object.
- */
-public AntRoutingDepthFirst(AntState start, AntState goal,AntWorld world)
-{
-super(start);
-this.goal=goal;
-this.world=world;
-} //end method
+	/**
+	 * Create an AntRoutingDepthFirst object from the initial state, goal state, and ant world.
+	 * @param start	The initial state.
+	 * @param goal	The goal state.
+	 * @param world	The world as an AntWorld object.
+	 */
+	public AntRoutingDepthFirst(AntState start, AntState goal, AntWorld world)
+	{
+		super(start);
+		this.goal = goal;
+		this.world = world;
+	}
 
-/**
- * We override the addChild(List<Node>,Node) method to add the new child to the beginning of the fringe.
- * This gives a depth-first behaviour.
- */
-protected void addChild(List<Node> fringe,Node childNode)
-{
-fringe.add(0,childNode);
-} //end method
+	/**
+	 * We override the addChild(List<Node>,Node) method to add the new child to the beginning of the fringe.
+	 * This gives a depth-first behaviour.
+	 */
+	protected void addChild(List<Node> fringe, Node childNode)
+	{
+		fringe.add(0, childNode);
+	}
 
-/**
- * This method override the superclass isGoal(...) method to check for a goal state.
- * It simply checks if the state in question equals to the goal state (stored in the goal attribute).
- */
-@Override
-public boolean isGoal(State state)
-{
-return state.equals(this.goal);
-} //end method
-} //end class
+	/**
+	 * This method override the superclass isGoal(...) method to check for a goal state.
+	 * It simply checks if the state in question equals to the goal state (stored in the goal attribute).
+	 */
+	@Override
+	public boolean isGoal(State state)
+	{
+		return state.equals(this.goal);
+	}
+}
