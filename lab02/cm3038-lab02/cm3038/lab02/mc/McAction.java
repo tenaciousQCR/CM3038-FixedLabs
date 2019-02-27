@@ -10,49 +10,49 @@ import cm3038.search.*;
  * @author kit
  *
  */
-public class McAction extends Action
-{
+public class McAction extends Action {
 	/**
 	 * The number of missionaries we are moving in this action.
 	 */
-public int missionaries;
+	public int missionaries;
 
-/**
- * The number of cannibals we are moving.
- */
-public int cannibals;
+	/**
+	 * The number of cannibals we are moving.
+	 */
+	public int cannibals;
 
-/**
- * We are moving the raft to this bank.
- * It must be either NORTH or SOUTH as defined in the RiverBank enumerated type.
- */
-public RiverBank toBank;
+	/**
+	 * We are moving the raft to this bank.
+	 * It must be either NORTH or SOUTH as defined in the RiverBank enumerated type.
+	 */
+	public RiverBank toBank;
 
-/**
- * Create an McAction object.
- * @param m The number of missionaries to move.
- * @param c The number of cannibals.
- * @param to The destination of the raft.
- */
-public McAction(int m,int c,RiverBank to)
-{
-this.missionaries=m;
-this.cannibals=c;
-this.toBank=to;
-} //end method
+	/**
+	 * Create an McAction object.
+	 * @param m The number of missionaries to move.
+	 * @param c The number of cannibals.
+	 * @param to The destination of the raft.
+	 */
+	public McAction(int m, int c, RiverBank to) {
+		this.missionaries = m;
+		this.cannibals = c;
+		this.toBank = to;
+	}
 
-/**
- * This method is required by the Action interface.
- * It converts the McAction object into a String for convenient printing purpose.
- */
-public String toString()
-{
-String result;
+	/**
+	 * This method is required by the Action interface.
+	 * It converts the McAction object into a String for convenient printing purpose.
+	 */
+	public String toString() {
+		String result;
 
-if (this.toBank==RiverBank.NORTH)
-	result="South->North ";
-else result="North->South ";
-result+=this.missionaries+"M "+this.cannibals+"C";
-return result;
-} //end method
-} //end class
+		if (this.toBank == RiverBank.NORTH) {
+			result = "South->North ";
+		} else {
+			result = "North->South ";
+		}
+		
+		result += this.missionaries + "M " + this.cannibals + "C";
+		return result;
+	}
+}
