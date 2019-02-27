@@ -6,7 +6,6 @@ package cm3038.lab06.tictactoe;
  * @author kit
  *
  */
-public enum Symbol
-{
-CROSS,NAUGHT,BLANK;
-} //end enum
+public enum Symbol {
+	CROSS, NAUGHT, BLANK;
+}
