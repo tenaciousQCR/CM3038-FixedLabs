@@ -7,5 +7,5 @@ package cm3038.lab05.ant;
  *
  */
 public enum Direction {
-	NORTH, SOUTH, WEST, EAST, UNKNOWN;
+    NORTH, SOUTH, WEST, EAST, UNKNOWN;
 }

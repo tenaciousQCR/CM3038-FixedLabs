@@ -7,5 +7,5 @@ package cm3038.lab06.tictactoe;
  *
  */
 public enum Symbol {
-	CROSS, NAUGHT, BLANK;
+    CROSS, NAUGHT, BLANK;
 }

@@ -7,5 +7,5 @@ package cm3038.search.adversarial;
  *
  */
 public enum PlayerRole {
-	MAX, MIN, UNKNOWN;
+    MAX, MIN, UNKNOWN;
 }

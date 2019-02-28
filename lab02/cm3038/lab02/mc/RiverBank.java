@@ -6,5 +6,5 @@ package cm3038.lab02.mc;
  *
  */
 public enum RiverBank {
-	NORTH, SOUTH;
+    NORTH, SOUTH;
 }
